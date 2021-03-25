@@ -1,17 +1,36 @@
 const connection = require(__base + 'modules/database/connection')
 
 
-const getMusic = async () => {
+const getMusic = async (params) => {
     const con = await connection.getConnection()
-    if (con.error) return con
+    if (con.error) return { error: 'db.error.connection' }
+
+    const _per_page = params._per_page || process.env.per_page || 15
+    const _page = params.page || 1
+    const _id = params.id
+    
+    
+    let queryWhere = ''
+
+
+    if (_id) queryWhere += ` AND m.id = ${_id} `
 
     
+    const query = `
+        SELECT
+            m.*
+        FROM
+            music AS m
+        WHERE
+            m.is_deleted = 0
+            ${queryWhere}
+        LIMIT ${_per_page}
+        OFFSET ${(_page - 1) * _per_page}
+    `
+
+
     let result
-    try {
-        [result] = await con.query(`SELECT m.* FROM music AS m WHERE m.is_deleted = 0`)
-    } catch (error) {
-        console.log('test')
-    }
+    [result] = await con.query(query)
 
 
     con.release()
