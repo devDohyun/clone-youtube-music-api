@@ -57,6 +57,7 @@ app.use(function(req, res, next){
 
 
 app.use('/', require('./routes/index'))
+app.use('/music', require('./routes/music'))
 
 
 app.use(function(req, res, next){
