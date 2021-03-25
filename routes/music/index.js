@@ -6,7 +6,7 @@ const modelMusic = require(__base + 'models/music')
 
 router.get('/:id?', async (req, res) => {
     const page = req.query.page
-    const id = req.query.id
+    const id = req.params.id
     
     const params = {
         page,
