@@ -1,0 +1,64 @@
+### Node template
+# Logs
+# logs
+*.log
+
+# Dependency directories
+node_modules/
+
+# TypeScript v1 declaration files
+typings/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# dotenv environment variables file
+.env
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+
+# next.js build output
+.next
+
+# Serverless directories
+.serverless
+
+# IDE / Editor
+.idea
+.editorconfig
+.vscode
+
+# Service worker
+sw.*
+
+# Mac OSX
+.DS_Store
+
+# Vim swap files
+*.swp
+
+# session-file-store session directories
+sessions/
+
+
+# fcm keys
+fcm-admin-account.json
+
+#dev
+dev/
+
+# temp files
+temp/
+
+# image thumb files
+thumb/
